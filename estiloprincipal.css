@@ -1,0 +1,227 @@
+/* ------------------------------ */
+/* TIPOGRAFÍA ELEGANTE Y MODERNA */
+/* ------------------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: rgb(10, 10, 10);
+}
+
+/* ------------------------------ */
+/* FONDO PERGAMINO */
+/* ------------------------------ */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("img/geralt-parchment-3618729.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    opacity: 0.9;
+}
+
+/* ------------------------------ */
+/* RAMA INTEGRADA EN LA TARJETA */
+/* ------------------------------ */
+
+.contenido::before {
+    content: "";
+    position: absolute;
+    left: -80px;
+    top: 40px; /* corregido: antes no tenía unidad */
+    width: 450px;
+    height: 100%;
+    background-image: url("img/654862891cf083c1a8d2756816a97b2b.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left top;
+    z-index: -1;
+    opacity: 1;
+}
+
+/* ------------------------------ */
+/* TARJETA ELEGANTE */
+/* ------------------------------ */
+
+.contenido {
+    margin-left: 15vw;
+    max-width: 900px;
+    padding: 40px 60px;
+    position: relative;
+
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(4px);
+
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    box-shadow: 0 0 25px rgba(0,0,0,0.15);
+
+    text-align: center;
+    z-index: 1;
+}
+
+/* ------------------------------ */
+/* TITULARES */
+/* ------------------------------ */
+
+#saludo,
+.comentario,
+.nombres {
+    font-family: 'Great Vibes', cursive;
+}
+
+#saludo {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    transform: scale(1.3);
+}
+
+.comentario {
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin: 20px 0;
+    opacity: 0.9;
+    transform: scale(1.4);
+}
+
+.nombres {
+    font-size: 6rem;
+    font-weight: 400;
+    margin: 5px 0;
+    letter-spacing: 3px;
+}
+
+/* ------------------------------ */
+/* LAYOUT */
+/* ------------------------------ */
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 40px;
+    width: 100%;
+}
+
+/* ------------------------------ */
+/* COLUMNA IZQUIERDA */
+/* ------------------------------ */
+
+.col-izq {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.fecha {
+    position: relative;
+    left: -60px;
+    width: 160px;
+    padding: 20px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    font-weight: 600;
+    transform: translateX(90%) translateY(20%);
+}
+
+.fecha p {
+    margin: 0;
+    line-height: 1.1;
+}
+
+.contacto1 {
+    position: relative;
+    margin-top: 90px;
+    padding-top: 20px;
+    font-size: 2.1rem;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 600;
+    transform: translateX(30%);
+}
+
+/* ------------------------------ */
+/* COLUMNA DERECHA */
+/* ------------------------------ */
+
+.col-der {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+.direccion-bloque {
+    width: 420px;
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    transform: scale(1.4);
+    margin-top: 20px;
+}
+
+.tipo,
+.finca,
+.poblacion,
+.calle,
+.hora {
+    font-size: 1.3rem;
+    margin: 8px 0;
+}
+
+/* ------------------------------ */
+/* CONTACTO 2 */
+/* ------------------------------ */
+
+.contacto2 {
+    position: relative;
+    font-size: 2rem;
+    padding-top: 5px;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 600;
+    transform: translateX(60%) translateY(67%);
+}
+
+.contacto1 p,
+.contacto2 p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+}
+
+/* ------------------------------ */
+/* POLAROID */
+/* ------------------------------ */
+
+.polaroid {
+    width: 240px;
+    margin: 30px auto;
+    padding: 15px 15px 35px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 10px;
+
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+    transform: translateY(-50%) translateX(100%) rotate(-2deg);
+}
+
+.polaroid img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.polaroid p {
+    margin: 12px 0 0;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: #444;
+}
