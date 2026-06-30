@@ -1,65 +1,106 @@
 /* ------------------------------ */
-/* ESTILOS GENERALES */
+/* TIPOGRAFÍA */
 /* ------------------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 body {
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    font-family: 'Georgia', serif;
-    background-color: #f7f4ef;
-    color: #333;
-}
-
-.contenido {
-    position: relative;
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 40px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    color: #111;
+    overflow-x: hidden;
+    animation: fadeIn 1.2s ease forwards;
 }
 
 /* ------------------------------ */
-/* RAMA GRANDE PREMIUM */
+/* FONDO PERGAMINO */
+/* ------------------------------ */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("img/geralt-parchment-3618729.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+    z-index: -2;
+}
+
+/* ------------------------------ */
+/* TARJETA PREMIUM */
+/* ------------------------------ */
+
+.contenido {
+    max-width: 900px;
+    width: 90%;
+    margin: 60px auto;
+    padding: 40px 60px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 215, 0, 0.45);
+    box-shadow: 0 0 35px rgba(0,0,0,0.25);
+    text-align: center;
+    z-index: 1;
+    animation: cardIn 1.2s ease forwards;
+}
+
+/* Brillo dorado animado */
+.contenido:hover {
+    box-shadow: 0 0 45px rgba(255, 215, 0, 0.55);
+    transition: box-shadow 0.6s ease;
+}
+
+/* ------------------------------ */
+/* RAMA PREMIUM */
 /* ------------------------------ */
 
 .contenido::before {
     content: "";
     position: absolute;
-    left: -120px;
-    top: -40px;
-    width: 750px; /* tamaño grande premium */
-    height: auto;
+    left: -20px;
+    top: 40px;
+    width: 380px; /* MÁS GRANDE */
+    height: 100%;
     background-image: url("img/654862891cf083c1a8d2756816a97b2b.png");
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.9;
+    opacity: 0.95;
     filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.25));
-    pointer-events: none;
+    animation: ramaIn 1.4s ease forwards;
+    z-index: 0;
 }
 
 /* ------------------------------ */
 /* TITULARES */
 /* ------------------------------ */
 
+#saludo,
+.comentario,
+.nombres {
+    font-family: 'Great Vibes', cursive;
+    animation: textIn 1.4s ease forwards;
+}
+
 #saludo {
-    text-align: center;
-    font-size: 3rem;
+    font-size: 2.4rem;
     margin-bottom: 10px;
 }
 
-.nombres {
-    text-align: center;
-    font-size: 4rem;
-    margin: 0;
-    letter-spacing: 3px;
+.comentario {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    opacity: 0.9;
 }
 
-.comentario {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 40px;
+.nombres {
+    font-size: 6rem;
+    margin: 5px 0;
+    letter-spacing: 3px;
 }
 
 /* ------------------------------ */
@@ -70,120 +111,120 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+    margin-top: 40px;
 }
 
 /* ------------------------------ */
-/* FECHA */
-/* ------------------------------ */
-
-.fecha p {
-    font-size: 1.6rem;
-    margin: 5px 0;
-}
-
-/* ------------------------------ */
-/* DIRECCIÓN */
-/* ------------------------------ */
-
-.direccion-bloque p {
-    font-size: 1.3rem;
-    margin: 4px 0;
-}
-
-/* ------------------------------ */
-/* CONTACTOS */
-/* ------------------------------ */
-
-.contacto1, .contacto2 {
-    margin-top: 20px;
-    font-size: 1.3rem;
-}
-
-/* ------------------------------ */
-/* POLAROID */
+/* POLAROID PREMIUM */
 /* ------------------------------ */
 
 .polaroid {
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
+    width: 240px; /* FIJO */
+    margin: 30px auto;
+    padding: 15px 15px 35px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 215, 0, 0.45);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    animation: polaroidIn 1.6s ease forwards;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.polaroid:hover {
+    transform: scale(1.05) rotate(-1deg);
 }
 
 .polaroid img {
     width: 100%;
-    border-radius: 10px;
-    transition: opacity 0.3s ease;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: opacity 0.4s ease;
 }
 
 .polaroid p {
-    font-size: 1.5rem;
-    margin-top: 10px;
+    margin: 12px 0 0;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: #444;
 }
 
 /* ------------------------------ */
-/* RESPONSIVE PREMIUM */
+/* ANIMACIONES */
+/* ------------------------------ */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ramaIn {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes textIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes polaroidIn {
+    from { opacity: 0; transform: translateY(40px) rotate(-4deg); }
+    to { opacity: 1; transform: translateY(0) rotate(-2deg); }
+}
+
+/* ------------------------------ */
+/* RESPONSIVE PREMIUM (MÓVIL MEJORADO) */
 /* ------------------------------ */
 
 @media (max-width: 768px) {
 
     body {
-        font-size: 18px;
-    }
-
-    .contenido {
-        padding: 20px;
-        margin: 10px;
-        width: 95%;
+        font-size: 26px; /* LETRA MUY GRANDE */
     }
 
     #saludo {
-        font-size: 2.2rem;
+        font-size: 3.2rem;
     }
 
     .nombres {
-        font-size: 3rem;
-        letter-spacing: 2px;
+        font-size: 4.5rem;
     }
 
     .comentario {
-        font-size: 1.3rem;
+        font-size: 2rem;
     }
 
     .layout {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 20px;
     }
 
-    .fecha p {
-        font-size: 1.4rem;
-    }
-
-    .direccion-bloque p {
-        font-size: 1.2rem;
-    }
-
-    /* Polaroid más grande en móvil */
+    /* Polaroid fija */
     .polaroid {
-        width: 90%;
-        margin: 0 auto;
+        width: 260px;
+        margin-top: 10px;
     }
 
-    .polaroid p {
-        font-size: 1.6rem;
-    }
-
-    /* Contactos debajo de la foto */
-    .contacto1, .contacto2 {
+    /* Contactos debajo de la polaroid */
+    .contacto1,
+    .contacto2 {
         text-align: center;
-        margin-top: 30px;
-        font-size: 1.4rem;
+        margin-top: 25px;
+        font-size: 2rem;
     }
 
-    /* Rama adaptada para móvil */
+    /* Rama grande en móvil */
     .contenido::before {
-        width: 450px;
-        left: -60px;
-        top: -20px;
-        opacity: 0.7;
+        left: -10px;
+        top: 20px;
+        width: 380px; /* GRANDE TAMBIÉN EN MÓVIL */
+        opacity: 0.85;
     }
 }
