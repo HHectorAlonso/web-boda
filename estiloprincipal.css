@@ -154,7 +154,7 @@ body::after {
 /* VERSIÓN MÓVIL */
 /* ------------------------------ */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
     body {
         font-size: 24px; /* lectura grande */
