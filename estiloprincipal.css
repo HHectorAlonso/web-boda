@@ -179,33 +179,59 @@ body::after {
 }
 
 /* ------------------------------ */
-/* RESPONSIVE PREMIUM */
+/* RESPONSIVE PREMIUM MEJORADO */
 /* ------------------------------ */
 
 @media (max-width: 768px) {
 
-    .contenido {
-        padding: 25px;
-        margin: 20px auto;
+    body {
+        font-size: 18px;
     }
 
-    .contenido::before {
-        left: -10px;
-        width: 300px;
-        opacity: 0.7;
+    .contenido {
+        padding: 20px;
+        margin: 10px;
+        width: 95%;
+    }
+
+    #saludo {
+        font-size: 2rem;
+    }
+
+    .nombres {
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+
+    .comentario {
+        font-size: 1.3rem;
     }
 
     .layout {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 25px;
     }
 
-    .nombres {
-        font-size: 3.5rem;
+    .fecha p {
+        font-size: 1.4rem;
     }
 
+    .direccion-bloque p {
+        font-size: 1.2rem;
+    }
+
+    .telefono,
+    .nombre {
+        font-size: 1.3rem;
+    }
+
+    /* Polaroid más grande en móvil */
     .polaroid {
-        width: 70%;
-        transform: none;
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .polaroid p {
+        font-size: 1.6rem;
     }
 }
