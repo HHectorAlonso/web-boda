@@ -1,4 +1,7 @@
-/* TIPOGRAFÍA Y FONDO */
+/* ------------------------------ */
+/* TIPOGRAFÍA */
+/* ------------------------------ */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
@@ -10,24 +13,35 @@ body {
     overflow-x: hidden;
 }
 
-body::after {
+/* ------------------------------ */
+/* FONDO PERGAMINO DENTRO DE TARJETA */
+/* ------------------------------ */
+
+.contenido {
+    position: relative;
+    overflow: hidden; /* recorta el fondo dentro de la tarjeta */
+}
+
+.contenido::after {
     content: "";
-    position: fixed;
+    position: absolute;
     inset: 0;
     background-image: url("img/geralt-parchment-3618729.png");
     background-size: cover;
     background-position: center;
-    opacity: 0.9;
-    z-index: -2;
+    opacity: 0.35;
+    z-index: -1;
 }
 
-/* TARJETA */
+/* ------------------------------ */
+/* TARJETA PREMIUM */
+/* ------------------------------ */
+
 .contenido {
     max-width: 900px;
     width: 90%;
     margin: 60px auto;
     padding: 40px 60px;
-    position: relative;
     background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(6px);
     border-radius: 20px;
@@ -37,22 +51,29 @@ body::after {
     z-index: 1;
 }
 
-/* RAMA */
+/* ------------------------------ */
+/* RAMA PREMIUM (DESKTOP) */
+/* ------------------------------ */
+
 .contenido::before {
     content: "";
     position: absolute;
     left: -20px;
     top: 40px;
-    width: 320px;
+    width: 300px;
     height: 100%;
     background-image: url("img/654862891cf083c1a8d2756816a97b2b.png");
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.9;
     filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.25));
+    z-index: 0;
 }
 
+/* ------------------------------ */
 /* TITULARES */
+/* ------------------------------ */
+
 #saludo,
 .comentario,
 .nombres {
@@ -76,7 +97,10 @@ body::after {
     letter-spacing: 3px;
 }
 
-/* LAYOUT COLUMNAS (DESKTOP) */
+/* ------------------------------ */
+/* LAYOUT DESKTOP */
+/* ------------------------------ */
+
 .layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -90,24 +114,22 @@ body::after {
     justify-content: center;
 }
 
-/* FECHA / DIRECCIÓN */
-.fecha p {
-    margin: 4px 0;
-    font-size: 1.3rem;
-}
+/* ------------------------------ */
+/* CONTACTOS + POLAROID DESKTOP */
+/* ------------------------------ */
 
-.direccion-bloque p {
-    margin: 4px 0;
-    font-size: 1.2rem;
-}
-
-/* CONTACTOS + POLAROID (DESKTOP) */
 .contactos-polaroid {
     margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 30px;
+}
+
+.contactos-linea {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
 }
 
 .contacto1, .contacto2 {
@@ -123,7 +145,10 @@ body::after {
     font-size: 1.2rem;
 }
 
+/* ------------------------------ */
 /* POLAROID */
+/* ------------------------------ */
+
 .polaroid {
     width: 240px;
     margin: 0 auto;
@@ -140,7 +165,6 @@ body::after {
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 6px;
-    transition: opacity 0.4s ease;
 }
 
 .polaroid p {
@@ -151,13 +175,13 @@ body::after {
 }
 
 /* ------------------------------ */
-/* VERSIÓN MÓVIL */
+/* VERSIÓN MÓVIL PERFECTA */
 /* ------------------------------ */
 
-@media (max-width: 1024px) {
+@media (orientation: portrait) {
 
     body {
-        font-size: 24px; /* lectura grande */
+        font-size: 26px;
     }
 
     #saludo {
@@ -194,28 +218,37 @@ body::after {
         font-size: 1.6rem;
     }
 
-    /* rama grande y centrada en la zona blanca */
+    /* rama grande y centrada */
     .contenido::before {
         left: 50%;
-        top: 10px;
-        width: 500px;
+        top: -40px;
+        width: 650px;
         height: auto;
         transform: translateX(-50%);
         opacity: 0.9;
+        z-index: 0;
     }
 
-    /* bloque contactos + polaroid en columna */
+    /* bloque móvil: polaroid arriba, contactos en línea debajo */
     .contactos-polaroid {
-        margin-top: 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        gap: 25px;
+        margin-top: 40px;
     }
 
     .polaroid {
-        width: 240px; /* fija */
-        margin: 10px auto;
+        width: 240px;
+        order: 1;
+    }
+
+    .contactos-linea {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
     }
 
     .contacto1, .contacto2 {
