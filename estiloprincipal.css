@@ -114,7 +114,6 @@ body {
     justify-content: center;
 }
 
-/* ------------------------------ */
 /* CONTACTOS + POLAROID DESKTOP */
 /* ------------------------------ */
 
@@ -126,23 +125,26 @@ body {
     gap: 30px;
 }
 
-.contactos-linea {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-}
 
 .contacto1, .contacto2 {
-    text-align: center;
+    margin: 0 100px;
+}
+/* ORDEN CORRECTO EN DESKTOP */
+.contacto1 {
+    order: 1;
 }
 
-.nombre {
-    font-weight: 600;
-    font-size: 1.2rem;
+.polaroid {
+    order: 2;
 }
 
-.telefono {
-    font-size: 1.2rem;
+.contacto2 {
+    order: 3;
+}
+
+/* IMPORTANTE: este contenedor NO debe afectar en desktop */
+.contactos-linea {
+    display: contents; /* se desactiva en desktop */
 }
 
 /* ------------------------------ */
@@ -174,84 +176,69 @@ body {
     color: #444;
 }
 
+
+
 /* ------------------------------ */
-/* VERSIÓN MÓVIL PERFECTA */
+/* VERSIÓN MÓVIL UNIVERSAL */
 /* ------------------------------ */
 
-@media (orientation: portrait) {
+@media (max-width: 768px) {
 
-    body {
-        font-size: 26px;
-    }
-
-    #saludo {
-        font-size: 3rem;
-    }
-
-    .nombres {
-        font-size: 4.5rem;
-    }
-
-    .comentario {
-        font-size: 2rem;
-    }
-
+    /* Convertimos .contenido en flex para poder ordenar */
     .contenido {
-        padding: 25px 20px;
-        margin: 30px auto;
-        width: 95%;
-    }
-
-    /* columnas una debajo de otra */
-    .layout {
-        display: block;
-        text-align: center;
-    }
-
-    .col-izq, .col-der {
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-
-    .fecha p,
-    .direccion-bloque p {
-        font-size: 1.6rem;
-    }
-
-    /* rama grande y centrada */
-    .contenido::before {
-        left: 50%;
-        top: -40px;
-        width: 650px;
-        height: auto;
-        transform: translateX(-50%);
-        opacity: 0.9;
-        z-index: 0;
-    }
-
-    /* bloque móvil: polaroid arriba, contactos en línea debajo */
-    .contactos-polaroid {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 25px;
-        margin-top: 40px;
+        gap: 20px;
     }
 
+    /* BLOQUES FIJOS ARRIBA */
+    #saludo { order: 0; }
+    .nombres { order: 1; }
+    .comentario { order: 2; }
+
+    /* POLAROID JUSTO DEBAJO DEL COMENTARIO */
     .polaroid {
+        order: 3;
         width: 240px;
-        order: 1;
+        margin: 10px auto;
+    }
+
+    /* FECHA DEBAJO DE POLAROID */
+    .fecha {
+        order: 4;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    /* DIRECCIÓN DEBAJO DE FECHA */
+    .direccion-bloque {
+        order: 5;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* CONTACTOS AL FINAL */
+    .contactos-polaroid {
+        order: 6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
     }
 
     .contactos-linea {
-        order: 2;
         display: flex;
         justify-content: center;
         gap: 40px;
         width: 100%;
     }
 
-    .contacto1, .contacto2 {
-        font-size: 1.8rem;
+    /* Anulamos layout */
+    .layout {
+        display: contents;
     }
 }
