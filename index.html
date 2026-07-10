@@ -8,50 +8,47 @@
 <body>
 
 <div class="contenido">
+
     <h1 id="saludo">¡Nos casamos!</h1>
     <h1 class="nombres">Héctor & Raquel</h1>
     <h2 class="comentario">Y queremos que formes parte de nuestro enlace</h2>
 
+    <!-- BLOQUE FECHA + DIRECCIÓN (DESKTOP: 2 columnas) -->
     <div class="layout">
-        <div class="col-izq">
-            <div class="fecha">
-                <p>Sabado</p>
-                <p>10</p>
-                <p>Octubre</p>
-                <p>2026</p>
-            </div>
-        </div>
-
-        <div class="col-der">
-            <div class="direccion-bloque">
-                <p class="tipo">Te esperamos en</p>
-                <p class="finca">Finca La Resinera La Adrada (Avila)</p>
-                <p class="calle">calle la iglesuela sin numero</p>
-                <p class="hora">18:00 HORAS</p>
-            </div>
-        </div>
+    
+    <div class="fecha">
+        <p class="dia">Sábado 10 octubre 2026</p>
+        <p class="hora">a las 18horas</p>
     </div>
 
-    <!-- Fila de contactos + polaroid (desktop) / bloque vertical (mobile) -->
-    <div class="contactos-polaroid">
-
-        <div class="polaroid">
-            <img id="foto-polaroid" src="img/WhatsApp.jpeg" alt="Nosotros">
-        </div>
-
-        <div class="contactos-linea">
-            <div class="contacto1">
-                <p class="nombre">Héctor:</p>
-                <p class="telefono">615112199</p>
-            </div>
-
-            <div class="contacto2">
-                <p class="nombre">Raquel:</p>
-                <p class="telefono">660800710</p>
-            </div>
-        </div>
-
+    <div class="polaroid">
+        <img src="img/WhatsApp.jpeg" alt="">
     </div>
+
+    <div class="direccion-bloque">
+        <p class="tipo">Te esperamos en</p>
+        <p class="finca">Finca La Resinera La Adrada (Ávila)</p>
+        <p class="calle">calle la iglesuela sin número</p>
+    </div>
+
+</div>
+
+
+    <!-- CONTACTOS -->
+    <div class="contactos-linea">
+        <div class="contacto1">
+            <p>Héctor</p>
+            <p>615112199</p>
+        </div>
+        <div class="contacto2">
+            <p>Raquel</p>
+            <p>660800710</p>
+        </div>
+    </div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfye-QetV-5B-LSD68IO3tuxvDqwYKMHemRilR9-G6ePwlVQg/viewform?usp=preview" target="_blank" class="boton-form">
+    Formulario
+</a>
+
 </div>
 
 <script src="app.js"></script>

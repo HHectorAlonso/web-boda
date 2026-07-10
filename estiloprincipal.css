@@ -5,8 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
+
+
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Great Vibes', cursive;
     margin: 0;
     padding: 0;
     color: #111;
@@ -14,30 +16,11 @@ body {
 }
 
 /* ------------------------------ */
-/* FONDO PERGAMINO DENTRO DE TARJETA */
+/* FONDO PERGAMINO */
 /* ------------------------------ */
 
 .contenido {
     position: relative;
-    overflow: hidden; /* recorta el fondo dentro de la tarjeta */
-}
-
-.contenido::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("img/geralt-parchment-3618729.png");
-    background-size: cover;
-    background-position: center;
-    opacity: 0.35;
-    z-index: -1;
-}
-
-/* ------------------------------ */
-/* TARJETA PREMIUM */
-/* ------------------------------ */
-
-.contenido {
     max-width: 900px;
     width: 90%;
     margin: 60px auto;
@@ -48,26 +31,36 @@ body {
     border: 2px solid rgba(255, 215, 0, 0.45);
     box-shadow: 0 0 35px rgba(0,0,0,0.25);
     text-align: center;
-    z-index: 1;
+    overflow: hidden;
 }
 
-/* ------------------------------ */
-/* RAMA PREMIUM (DESKTOP) */
-/* ------------------------------ */
+.contenido::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("img/HectoryRaquel.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.55;
+    z-index: -2;
+}
 
 .contenido::before {
     content: "";
+    margin-top: 280px;
+    margin-left: 70px;
     position: absolute;
-    left: -20px;
-    top: 40px;
-    width: 300px;
-    height: 100%;
-    background-image: url("img/654862891cf083c1a8d2756816a97b2b.png");
+    left: -10px;           /*más hacia fuera para que se vea más grande */
+    top: 0;
+    width: 300px;         /* más grande */
+    height: 100%;         /* ocupa toda la tarjeta */
+    background-image: url("img/ramaNueva.png");
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.9;
+    opacity: 0.40;        /* más suave para que no tape texto */
     filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.25));
-    z-index: 0;
+    z-index: -1;           /* detrás del texto, pero encima del pergamino */
+    pointer-events: none; /* evita que interfiera con clics */
 }
 
 /* ------------------------------ */
@@ -103,55 +96,33 @@ body {
 
 .layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas:
+        "fecha polaroid direccion"
+        "hora  polaroid direccion";
+    align-items: center;
     gap: 40px;
     margin-top: 40px;
+}
+
+.fecha {
+    grid-area: fecha;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     text-align: left;
+    font-size: 1.6rem;
 }
 
-.col-izq, .col-der {
-    display: flex;
-    justify-content: center;
-}
-
-/* CONTACTOS + POLAROID DESKTOP */
-/* ------------------------------ */
-
-.contactos-polaroid {
-    margin-top: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-
-.contacto1, .contacto2 {
-    margin: 0 100px;
-}
-/* ORDEN CORRECTO EN DESKTOP */
-.contacto1 {
-    order: 1;
+.hora {
+    grid-area: hora;
+    text-align: left;
+    font-size: 1.4rem;
+    margin-top: -10px;
 }
 
 .polaroid {
-    order: 2;
-}
-
-.contacto2 {
-    order: 3;
-}
-
-/* IMPORTANTE: este contenedor NO debe afectar en desktop */
-.contactos-linea {
-    display: contents; /* se desactiva en desktop */
-}
-
-/* ------------------------------ */
-/* POLAROID */
-/* ------------------------------ */
-
-.polaroid {
+    grid-area: polaroid;
     width: 240px;
     margin: 0 auto;
     padding: 15px 15px 35px;
@@ -169,76 +140,163 @@ body {
     border-radius: 6px;
 }
 
-.polaroid p {
-    margin: 12px 0 0;
+.direccion-bloque {
+    grid-area: direccion;
+    text-align: left;
+    font-size: 1.6rem;
+}
+
+/* ------------------------------ */
+/* CONTACTOS DESKTOP */
+/* ------------------------------ */
+
+.contactos-linea {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 40px;
+    font-size: 1.6rem;
+}
+
+
+
+.boton-form {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 35px;
+    background: rgba(255, 215, 0, 0.75);
+    color: #111;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+.boton-form {
     font-family: 'Great Vibes', cursive;
-    font-size: 1.8rem;
-    color: #444;
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 40px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #111;
+
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+
+    /* Borde dorado */
+    border: 2px solid rgba(255, 215, 0, 0.65);
+    border-radius: 14px;
+
+    /* Sombra suave */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+
+    /* Animación */
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+/* Hover (desktop) */
+.boton-form:hover {
+    background: rgba(255, 215, 0, 0.25);
+    box-shadow: 0 0 18px rgba(255, 215, 0, 0.75);
+    transform: translateY(-3px);
+}
+
+/* Active (al pulsar) */
+.boton-form:active {
+    background: rgba(255, 215, 0, 0.45);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 1);
+    transform: scale(0.97);
 }
 
 
 
 /* ------------------------------ */
-/* VERSIÓN MÓVIL UNIVERSAL */
+/* MOBILE */
 /* ------------------------------ */
 
-@media (max-width: 768px) {
+@media (max-width: 1240px) {
 
-    /* Convertimos .contenido en flex para poder ordenar */
     .contenido {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
-    }
-
-    /* BLOQUES FIJOS ARRIBA */
-    #saludo { order: 0; }
-    .nombres { order: 1; }
-    .comentario { order: 2; }
-
-    /* POLAROID JUSTO DEBAJO DEL COMENTARIO */
-    .polaroid {
-        order: 3;
-        width: 240px;
-        margin: 10px auto;
-    }
-
-    /* FECHA DEBAJO DE POLAROID */
-    .fecha {
-        order: 4;
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        width: 100%;
-    }
-
-    /* DIRECCIÓN DEBAJO DE FECHA */
-    .direccion-bloque {
-        order: 5;
+        gap: 35px;
+        padding: 20px;
         text-align: center;
-        width: 100%;
+    }
+    .contenido::before {
+        width: 400px;        /* más grande en móvil */
+        left: -100px;        /* la abrimos hacia fuera */
+        top: 100px;          /* la subimos un poco */
+        opacity: 0.50;       /* más suave para no tapar texto */
+        background-size: contain;
+        margin-top: 450px;
     }
 
-    /* CONTACTOS AL FINAL */
-    .contactos-polaroid {
-        order: 6;
+    #saludo {
+        font-size: 3rem;
+    }
+
+    .nombres {
+        font-size: 5rem;
+    }
+
+    .comentario {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .polaroid {
+        width: 260px;
+        margin: 20px auto;
+    }
+
+    .layout {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        gap: 30px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .fecha {
+        display: flex;
+        flex-direction: column; /* MUY IMPORTANTE */
+        align-items: center;    /* centra cada línea */
+        text-align: center;     /* centra el texto */
+        gap: 10px;
+        font-size: 2rem;
+        width: 100%;
+    }
+
+    .hora {
+        font-size: 1.8rem;
+        margin-top: -10px;
+    }
+
+    .direccion-bloque {
+        text-align: center;
+        font-size: 1.8rem;
         width: 100%;
     }
 
     .contactos-linea {
         display: flex;
         justify-content: center;
-        gap: 40px;
+        gap: 60px;
+        font-size: 2rem;
         width: 100%;
     }
-
-    /* Anulamos layout */
-    .layout {
-        display: contents;
+    .boton-form {
+        font-size: 2rem;
+        padding: 20px 50px;
+        border-radius: 18px;
     }
 }
