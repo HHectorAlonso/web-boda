@@ -213,6 +213,10 @@ body {
     box-shadow: 0 0 25px rgba(255, 215, 0, 1);
     transform: scale(0.97);
 }
+h2 {
+    font-weight: normal;
+}
+
 /* ------------------------------ */
 /* MOBILE */
 /* ------------------------------ */
@@ -243,16 +247,16 @@ body {
         content: "";
         position: absolute;
         top: 0px;
-        left: -200px;
-        width: 550px;
-        height: 600px;
-        background-image: url("img/Rama.png");
+        left: -150px;
+        width: 600px;
+        height: 800px;
+        background-image: url("img/654862891cf083c1a8d2756816a97b2b.png");
         background-size: contain;
         background-repeat: no-repeat;
-        opacity: 0.35;
+        opacity: 0.65;
         z-index: -1;
         pointer-events: none;
-        transform: scaleX(-1) translateY(360px);
+        transform: scaleX(-1) translateY(320px);
 
 
     }
