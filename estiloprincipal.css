@@ -232,31 +232,46 @@ body {
         text-align: center;
     }
 
-    /* RAMA DECORATIVA */
+    /* Oculta la rama original en móvil */
     .contenido::before {
-        width: 180px;
-        left: -25px;
-        top: 140px;
-        opacity: 0.28;
-        margin-top: 260px;
-        background-size: contain;
-        height: auto;
+        display: none !important;
     }
+
+    /* Activa la rama móvil */
+    .layout {
+        position: relative;
+    }
+
+    .layout::before {
+        content: "";
+        position: absolute;
+        top: -150px;
+        left: -100px;
+        width: 3000px;
+        height: 600px;
+        background-image: url("img/ramaNueva.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0.55;
+        z-index: 5;
+        pointer-events: none;
+    }
+}
 
     /* TITULARES */
     #saludo {
-        font-size: 3.6rem;
+        font-size: 5.6rem;
         margin-bottom: 5px;
     }
 
     .nombres {
-        font-size: 5.4rem;
+        font-size: 7.4rem;
         margin-bottom: 20px;
         letter-spacing: 2px;
     }
 
     .comentario {
-        font-size: 2.2rem;
+        font-size: 4.2rem;
         margin-bottom: 30px;
         opacity: 0.95;
     }
@@ -273,21 +288,21 @@ body {
 
     /* FECHA Y HORA */
     .fecha {
-        font-size: 2.4rem;
+        font-size: 3.4rem;
         gap: 10px;
         text-align: center;
         width: 100%;
     }
 
     .hora {
-        font-size: 2.2rem;
+        font-size: 3.4rem;
         margin-top: -2px;
         text-align: center !important; /* corrige desplazamiento */
     }
 
     /* POLAROID (debajo de la hora, como tú quieres) */
     .polaroid {
-        width: 80%;
+        width: 70%;
         padding: 18px 18px 35px;
         border-radius: 14px;
         margin: 10px auto 20px;
@@ -301,7 +316,7 @@ body {
 
     /* DIRECCIÓN */
     .direccion-bloque {
-        font-size: 2.2rem;
+        font-size: 3.4rem;
         width: 100%;
         text-align: center;
         line-height: 1.45;
@@ -309,10 +324,11 @@ body {
 
     /* CONTACTOS */
     .contactos-linea {
-        font-size: 2.2rem;
+        font-size: 3.4rem;
         gap: 40px;
         width: 100%;
         margin-top: 10px;
+        margin: 10px;
     }
 
     /* BOTÓN FORMULARIO */
